@@ -70,6 +70,7 @@ Status:
 
 import json 
 from openai import OpenAI
+from prompts.prompts import INTELLIGENCE_SYSTEM_PROMPT
 
 class IntelligenceAgent:
 
@@ -79,27 +80,7 @@ class IntelligenceAgent:
 
             api_key=api_key)
 
-        self.system_prompt = """
-You are a Cyber Threat Intelligence Agent.
-
-Analyze the detection result and network event.
-
-Identify:
-- threat context
-- MITRE ATT&CK technique
-- relevant indicators
-- attack explanation
-
-Return ONLY JSON.
-
-{
-    "threat_type": "...",
-    "mitre_attack": "...",
-    "context": "...",
-    "indicators": []
-}
-"""
-
+        self.system_prompt =INTELLIGENCE_SYSTEM_PROMPT
     def analyze(self,event,detection):
         payload = {
             "event":event,

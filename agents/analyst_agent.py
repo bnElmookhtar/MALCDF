@@ -66,6 +66,7 @@ Status:
 """
 import json 
 from openai import OpenAI
+from prompts.prompts import ANALYST_SYSTEM_PROMPT
 
 class AnalystAgent:
     def __init__(self,api_key):
@@ -73,25 +74,8 @@ class AnalystAgent:
                 base_url="https://backend.sovereigneg.com/v1",
             api_key=api_key)
 
-        self.system_prompt = """
-You are a Cybersecurity Analyst Agent.
-Create a concise incident report.
-
-Include:
-
-- threat
-- severity
-- source
-- destination
-- protocol
-- port
-- MITRE ATT&CK technique
-- recommended response
-- explanation
-
-Return valid JSON.
-"""
-
+        self.system_prompt = ANALYST_SYSTEM_PROMPT
+        
     def analyse(self,event,detection,intelligence,report):
         payload = {
             "event":event,

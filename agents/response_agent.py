@@ -79,6 +79,8 @@ Status:
 import json
 from openai import OpenAI
 
+from prompts.prompts import RESPONSE_SYSTEM_PROMPT
+
 
 class ResponseAgent:
 
@@ -89,23 +91,7 @@ class ResponseAgent:
             api_key=api_key
         )
 
-        self.system_prompt = """
-You are a Cybersecurity Response Coordination Agent.
-
-Based on the detected threat and intelligence,
-recommend defensive actions.
-
-DO NOT perform the actions.
-
-Return JSON:
-
-{
-    "priority": "...",
-    "recommended_actions": [],
-    "reason": "..."
-}
-"""
-
+        self.system_prompt = RESPONSE_SYSTEM_PROMPT
     def generate_response(
         self,
         event,
