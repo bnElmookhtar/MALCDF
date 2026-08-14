@@ -3,6 +3,8 @@
 > A research prototype for real-time cybersecurity threat detection and
 > incident response using a multi-agent language-model architecture.
 
+>the project aims to implement research paper [MALCDF: A Distributed Multi-Agent LLM Framework for Real-Time Cyber](https://arxiv.org/abs/2512.14846)
+
 ## Project Description
 
 MALCDF implements a multi-agent cybersecurity architecture consisting of:
