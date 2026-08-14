@@ -1,0 +1,13 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.vscode/
+*.log
+soc.db
+*.sqlite
+*.sqlite3
+models/*.pkl
