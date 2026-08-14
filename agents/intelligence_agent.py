@@ -1,5 +1,74 @@
+"""
+===============================================================================
+MALCDF - Threat Intelligence Agent (TIA)
+===============================================================================
+
+File:
+    agents/intelligence_agent.py
+
+Agent:
+    Threat Intelligence Agent (TIA)
+
+Description:
+    This module implements the Threat Intelligence Agent responsible for
+    enriching detected security events with additional cybersecurity context.
+
+Primary Responsibilities:
+    - Analyze detection results.
+    - Interpret the detected threat.
+    - Identify relevant attack techniques.
+    - Map threats to MITRE ATT&CK techniques.
+    - Provide contextual threat intelligence.
+    - Identify relevant indicators and behavioral evidence.
+
+Input:
+    - Original network event.
+    - Threat Detection Agent result.
+
+Output:
+    Structured threat intelligence information containing:
+        - Threat type
+        - MITRE ATT&CK technique
+        - Threat context
+        - Indicators
+        - Supporting explanation
+
+Example:
+
+    {
+        "threat_type": "Data Exfiltration",
+        "mitre_attack": "T1041",
+        "context": "Possible outbound data transfer",
+        "indicators": []
+    }
+
+Architecture Role:
+
+    Detection Agent
+          |
+          v
+    [ Threat Intelligence Agent ]
+          |
+          v
+    Threat Intelligence
+          |
+          v
+    Response Agent
+
+Research Purpose:
+    This agent provides contextual reasoning and cybersecurity knowledge
+    enrichment before a response recommendation is generated.
+
+Author:
+    Karim Mokhtar
+
+Status:
+    Research Prototype
+
+===============================================================================
+"""
+
 import json 
-from groq import Groq
 from openai import OpenAI
 
 class IntelligenceAgent:
